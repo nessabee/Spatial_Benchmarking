@@ -7,6 +7,7 @@ GitHub link: https://github.com/ZJUFanLab/SpaTalk?tab=readme-ov-file
 install.packages(pkgs = 'devtools')
 devtools::install_github('linxihui/NNLM')
 devtools::install_github('ZJUFanLab/SpaTalk')
+```
 
 ### 2. Creating the SpaTalk object:
 You need:
