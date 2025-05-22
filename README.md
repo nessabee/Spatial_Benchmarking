@@ -12,7 +12,7 @@ devtools::install_github('linxihui/NNLM')
 devtools::install_github('ZJUFanLab/SpaTalk')
 ```
 
-### 2. Creating the SpaTalk object:
+### 2. Creating the SpaTalk object (createSpaTalk):
 #### You need:
 * **st_data**: A data.frame or matrix or dgCMatrix containing counts of spatial transcriptomics, each column representing a spot or a cell, each row representing a gene.
 * **st_meta**: A data.frame containing coordinate of spatial transcriptomics with three columns, namely 'spot', 'x', 'y' for spot-based spatial transcriptomics data or 'cell', 'x', 'y' for single-cell spatial transcriptomics data.
@@ -31,7 +31,7 @@ obj <- createSpaTalk(
   spot_max_cell = 1,
   celltype = st_celltype)
 ```
-### 3. Finding the ligand-receptor pairs and pathways
+### 3. Finding the ligand-receptor pairs and pathways (find_lr_path):
 #### You need:
 * **object**: Generated in step 2
 * **lrpairs**: A data.frame of the system data containing ligand-receptor pairs of 'Human' and 'Mouse' from CellTalkDB. There is no need to load in anything, it is already included in the function!
@@ -44,4 +44,19 @@ Here is an example on how to run it:
 ```r
 obj <- find_lr_path(object = obj, lrpairs = lrpairs, pathways = pathways)
 ```
-### 4. Infering 
+### 4. Identify all cell-cell communications
+#### You need:
+* **object**: Generated in step 3 (after running find_lr_path)
+* **n_neighbor**: Number of neighbor cells to select as the proximal cell-cell pair. Default is 10.
+* **min_pairs**: Min proximal cell-cell pairs between for sending and receiving cell types. Default is 5.
+* **min_pairs_ratio**: Min proximal cell-cell pairs ratio between for sending and receiving cell types. Default is 0.
+* **per_num**: Number of repeat times for permutation test. Default is 1000.
+* **pvalue**: Include the significantly proximal LR pairs with this cutoff of p value from permutation test. Default is 0.05.
+* **co_exp_ratio**: Min cell ratio in receiving cells with co-expressed source and target genes for predicting the downstream pathway activity.
+* **if_doParallel**: For parallel computation to speed up analysis, default is TRUE.
+* **use_n_cores**: Number of CPU cores to use. Default is all cores - 2.
+
+Here is an example on how to run it:
+```r
+obj <- dec_cci_all(obj)
+```
