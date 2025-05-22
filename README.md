@@ -44,7 +44,7 @@ Here is an example on how to run it:
 ```r
 obj <- find_lr_path(object = obj, lrpairs = lrpairs, pathways = pathways)
 ```
-### 4. Identify all cell-cell communications
+### 4. Identifying all cell-cell communications (dec_cci_all):
 #### You need:
 * **object**: Generated in step 3 (after running find_lr_path)
 * **n_neighbor**: Number of neighbor cells to select as the proximal cell-cell pair. Default is 10.
