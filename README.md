@@ -13,13 +13,13 @@ devtools::install_github('ZJUFanLab/SpaTalk')
 ```
 
 ### 2. Creating the SpaTalk object (createSpaTalk):
-#### You need:
+#### You need (can be found from a Seurat object):
 * **st_data**: A data.frame or matrix or dgCMatrix containing counts of spatial transcriptomics, each column representing a spot or a cell, each row representing a gene.
 * **st_meta**: A data.frame containing coordinate of spatial transcriptomics with three columns, namely 'spot', 'x', 'y' for spot-based spatial transcriptomics data or 'cell', 'x', 'y' for single-cell spatial transcriptomics data.
 * **species**: A character meaning species of the spatial transcriptomics data, in this case 'Human' or 'Mouse'.
 * **if_st_is_sc**: For spot-based, set to FALSE. For single-cell, set to TRUE.
 * **spot_max_cell**: An integer meaning max cell number for each spot to predict. If if_st_sc is FALSE, determine the spot_max_cell. From the R documentation, they recommend 30 for 10X (55um), and 1 for Slide-seq.
-* **celltype**: A character containing the cell type of ST data. To skip the deconvolution step and directly infer cell-cell communication, please define the cell type. Default is NULL.
+* **celltype**: A character containing the cell type of ST data. To skip the deconvolution step and directly infer cell-cell communication, please define the cell type. Default is NULL. 
 
 Here is an example on how to run it with spot-based ST data:
 ```r
