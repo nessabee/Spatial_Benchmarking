@@ -60,3 +60,12 @@ Here is an example on how to run it:
 ```r
 obj <- dec_cci_all(obj)
 ```
+### 5. Get ligand-receptor and downstream pathway information
+#### Use if know celltype_sender & its ligand and celltype_receiver & its receptor
+#### You need:
+* **object**:Generated in step 4 (after running dec_cci_all)
+* **celltype_sender**: Name of celltype_sender.
+* **celltype_receiver**: Name of celltype_receiver.
+* **ligand**: Name of ligand from celltype_sender.
+* **receptor**: Name of receptor from celltype_receiver.
+* **min_gene_num**: Min genes number for each pathway.
