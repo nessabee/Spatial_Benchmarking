@@ -42,7 +42,7 @@ obj <- createSpaTalk(
 
 Here is an example on how to run it:
 ```r
-obj <- find_lr_path(object = obj, lrpairs = lrpairs, pathways = pathways)
+obj <- find_lr_path(object = obj, lrpairs = lrpairs, pathways = pathways, use_n_cores = 10)
 ```
 ### 4. Identifying all cell-cell communications (dec_cci_all):
 #### You need:
@@ -58,7 +58,7 @@ obj <- find_lr_path(object = obj, lrpairs = lrpairs, pathways = pathways)
 
 Here is an example on how to run it:
 ```r
-obj <- dec_cci_all(obj)
+obj <- dec_cci_all(obj, use_n_cores = 10)
 ```
 ### 5. Get ligand-receptor and downstream pathway information
 #### Use if know celltype_sender and its ligand & celltype_receiver and its receptor
