@@ -69,3 +69,12 @@ obj <- dec_cci_all(obj, use_n_cores = 10)
 * **ligand**: Name of ligand from celltype_sender.
 * **receptor**: Name of receptor from celltype_receiver.
 * **min_gene_num**: Min genes number for each pathway.
+
+Here is an example on how to run it:
+```r
+obj_lr_path <- get_lr_path(object = obj,
+                           celltype_sender = 'Smc',
+                           celltype_receiver = 'Astro',
+                           ligand = 'Apoe',
+                           receptor = 'Sdc4')
+```
