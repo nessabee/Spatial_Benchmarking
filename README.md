@@ -42,7 +42,13 @@ obj <- createSpaTalk(
 
 Here is an example on how to run it:
 ```r
-obj <- find_lr_path(object = obj, lrpairs = lrpairs, pathways = pathways, use_n_cores = 10)
+filteredobj <- find_lr_path(
+  object = obj,
+  lrpairs = lrpairs,
+  pathways = pathways,
+  max_hop = 3,
+  if_doParallel = TRUE,
+  use_n_cores = 10)
 ```
 ### 4. Identifying all cell-cell communications (dec_cci_all):
 #### You need:
